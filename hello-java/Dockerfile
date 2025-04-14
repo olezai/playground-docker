@@ -1,15 +1,16 @@
-# Using an official Ubuntu 22.04 image
-FROM ubuntu:22.04
+# Use official OpenJDK 8 image
+FROM openjdk:8
 
-# Install necessary dependencies and JDK 8
-RUN apt-get update && \ 
-	apt-get install -y wget curl gnupg openjdk-8-jdk && \
-	apt-get clean
+# Set working directory
+WORKDIR /app
 
 WORKDIR /app
 
+# Copy the Java file into the container
 COPY src/* .
 
+# Compile the Java file
 RUN javac HelloWorld.java
 
+# Command to run the compiled class
 CMD ["java", "HelloWorld"]
