@@ -4,8 +4,6 @@ FROM openjdk:8
 # Set working directory
 WORKDIR /app
 
-WORKDIR /app
-
 # Copy the Java file into the container
 COPY src/* .
 
